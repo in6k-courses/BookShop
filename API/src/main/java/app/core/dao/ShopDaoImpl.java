@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class ShopDaoImpl implements ShopDao{
+public class ShopDaoImpl implements ShopDao {
     @Autowired
     SessionFactory sessionFactory;
 

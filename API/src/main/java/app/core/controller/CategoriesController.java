@@ -18,7 +18,7 @@ public class CategoriesController {
     @RequestMapping(value = "/api/categories", method = RequestMethod.GET)
     public List<Categories> allCategories() {
 
-        System.out.println(service.getCategories() );
+        System.out.println(service.getCategories());
         return service.getCategories();
     }
 

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class CategoriesDaoImpl implements CategoriesDao{
+public class CategoriesDaoImpl implements CategoriesDao {
 
     @Autowired
     SessionFactory sessionFactory;

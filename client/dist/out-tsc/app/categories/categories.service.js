@@ -23,7 +23,7 @@ export var CategoryService = (function () {
             .catch(this.handleError);
     };
     CategoryService.prototype.handleError = function (error) {
-        console.error('An error occurred', error); // for demo purposes only
+        console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     };
     CategoryService = __decorate([

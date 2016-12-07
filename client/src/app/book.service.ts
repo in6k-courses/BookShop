@@ -35,7 +35,7 @@ export class BookService {
       .catch(this.handleError);
   }
 
-  update(book: Book) : Promise<Book>{
+  update(book: Book): Promise<Book> {
     return this.http
       .put(this.bookUrl, JSON.stringify(book), {headers: this.headers})
       .toPromise()
@@ -52,7 +52,7 @@ export class BookService {
   }
 
   private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
+    console.error('An error occurred', error);
     return Promise.reject(error.message || error);
   }
 }

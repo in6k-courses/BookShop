@@ -11,11 +11,12 @@ import java.util.List;
 import static org.hibernate.criterion.Restrictions.eq;
 
 @Repository
-public class BooksDaoImpl implements BooksDao{
+public class BooksDaoImpl implements BooksDao {
     @Autowired
     SessionFactory sessionFactory;
+
     public List<Book> getBooks() {
-          return sessionFactory.getCurrentSession().createCriteria(Book.class).list();
+        return sessionFactory.getCurrentSession().createCriteria(Book.class).list();
     }
 
     public void addBook(Book book) {

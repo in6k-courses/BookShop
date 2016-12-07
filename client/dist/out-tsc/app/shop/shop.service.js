@@ -23,7 +23,7 @@ export var ShopService = (function () {
             .catch(this.handleError);
     };
     ShopService.prototype.handleError = function (error) {
-        console.error('An error occurred', error); // for demo purposes only
+        console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     };
     ShopService = __decorate([

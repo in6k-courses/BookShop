@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class ShopServiceImpl{
+public class ShopServiceImpl {
     @Autowired
     ShopDaoImpl dao;
 

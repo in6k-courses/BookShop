@@ -50,7 +50,7 @@ export var BookComponent = (function () {
             selector: 'books',
             templateUrl: 'book.component.html',
             styleUrls: ['book.component.css']
-        }), 
+        }),
         __metadata('design:paramtypes', [Router, BookService])
     ], BookComponent);
     return BookComponent;

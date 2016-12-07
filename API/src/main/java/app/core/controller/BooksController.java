@@ -18,8 +18,7 @@ public class BooksController {
 
     @ResponseBody
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public List<Book> allBooks()
-    {
+    public List<Book> allBooks() {
         return service.getBooks();
     }
 
