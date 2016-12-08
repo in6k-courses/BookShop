@@ -1,10 +1,9 @@
 FROM node:4.4
-RUN npm install -g npm
+RUN npm install -g npm angular-cli
 
 RUN mkdir /client
 WORKDIR /client
 
-COPY src ./
+EXPOSE 4200
 
-EXPOSE 3000:3001
-CMD["npm", "run", "api"]
+CMD ["/bin/sh", "start.sh"]
