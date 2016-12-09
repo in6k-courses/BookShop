@@ -4,6 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.ManyToMany;
+
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -31,6 +36,7 @@ public class Book {
     private Categories categories;
 
 
+
     public Book() {
     }
 
@@ -43,6 +49,7 @@ public class Book {
         this.author = author;
         this.category = category;
     }
+
 
     public Integer getId() {
         return this.id;

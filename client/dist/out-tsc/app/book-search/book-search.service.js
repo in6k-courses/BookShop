@@ -8,15 +8,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
+import 'rxjs/add/operator/toPromise';
 export var BookSearchService = (function () {
     function BookSearchService(http) {
         this.http = http;
+        this.categoryUrl = '/api/books/category';
+        this.headers = new Headers({ 'Content-Type': 'application/json' });
     }
-    BookSearchService.prototype.search = function (name) {
-        return this.http
-            .get("api/books?q=" + name)
-            .map(function (r) { return r.json(); });
+    BookSearchService.prototype.getBooks = function () {
+        return this.http.get(this.categoryUrl)
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    BookSearchService.prototype.getBook = function (id) {
+        return this.getBooks()
+            .then(function (books) { return books.find(function (book) { return book.category === id; }); });
+    };
+    BookSearchService.prototype.search = function (id) {
+        return this.getBook(id)
+            .then(function (books) { return books.find(function (book) { return book.category === id; }); });
+    };
+    BookSearchService.prototype.handleError = function (error) {
+        console.error('An error occurred', error);
+        return Promise.reject(error.message || error);
     };
     BookSearchService = __decorate([
         Injectable(), 

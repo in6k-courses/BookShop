@@ -12,28 +12,25 @@ import {Book} from '../book';
   providers: [BookSearchService]
 })
 export class BookSearchComponent implements OnInit {
-  books: Observable<Book[]>;
+  books: Book[];
+
   private searchTerms = new Subject<string>();
 
   constructor(private bookSearchService: BookSearchService,
               private router: Router) {
   }
 
-  search(name: string): void {
+  search(id: number): void {
     this.searchTerms.next(name);
   }
 
-  ngOnInit(): void {
-    this.books = this.searchTerms
-      .debounceTime(300)
-      .distinctUntilChanged()
-      .switchMap(term => term
-        ? this.bookSearchService.search(term)
-        : Observable.of<Book[]>([]))
-      .catch(error => {
-        console.log(error);
-        return Observable.of<Book[]>([]);
-      });
+  getBooks(): void {
+    this.bookSearchService.getBooks().then(books => this.books = books);
   }
+
+  ngOnInit(): void {
+    this.getBooks();
+  }
+
 
 }

@@ -9,7 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { BookSearchService } from './book-search.service';
 export var BookSearchComponent = (function () {
@@ -18,21 +17,15 @@ export var BookSearchComponent = (function () {
         this.router = router;
         this.searchTerms = new Subject();
     }
-    BookSearchComponent.prototype.search = function (name) {
+    BookSearchComponent.prototype.search = function (id) {
         this.searchTerms.next(name);
     };
-    BookSearchComponent.prototype.ngOnInit = function () {
+    BookSearchComponent.prototype.getBooks = function () {
         var _this = this;
-        this.books = this.searchTerms
-            .debounceTime(300)
-            .distinctUntilChanged()
-            .switchMap(function (term) { return term
-            ? _this.bookSearchService.search(term)
-            : Observable.of([]); })
-            .catch(function (error) {
-            console.log(error);
-            return Observable.of([]);
-        });
+        this.bookSearchService.getBooks().then(function (books) { return _this.books = books; });
+    };
+    BookSearchComponent.prototype.ngOnInit = function () {
+        this.getBooks();
     };
     BookSearchComponent = __decorate([
         Component({

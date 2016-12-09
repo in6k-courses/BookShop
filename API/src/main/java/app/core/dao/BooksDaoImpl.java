@@ -19,6 +19,14 @@ public class BooksDaoImpl implements BooksDao {
         return sessionFactory.getCurrentSession().createCriteria(Book.class).list();
     }
 
+    public List<Book> getBooksByCategory(Integer id){
+        List<Book> books = (List<Book>) sessionFactory.getCurrentSession().createCriteria(Book.class)
+                .add(eq("id", id))
+                .list();
+
+        return books;
+    }
+
     public void addBook(Book book) {
         sessionFactory.getCurrentSession().save(book);
     }

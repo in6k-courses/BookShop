@@ -14,5 +14,6 @@ interface BooksDao {
 
     public void updateBook(Book upBook);
 
+    public List<Book> getBooksByCategory(Integer id);
 
 }

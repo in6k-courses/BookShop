@@ -1,7 +1,5 @@
 db:
   build: ./db
-  ports:
-    - "3307:3306"
 
 api:
   build: ./API
@@ -19,5 +17,6 @@ client:
     - "44200:4200"
   volumes:
     - ./client:/client
+  command: /bin/sh /client/start.sh
   links:
     - api

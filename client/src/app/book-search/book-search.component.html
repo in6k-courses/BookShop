@@ -2,7 +2,7 @@
   <h4>Books Search</h4>
   <shops></shops>
   <categories></categories>
-  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <input #searchBox id="search-box" (onclick)="search(searchBox.value)" />
   <div>
     <div *ngFor="let book of books | async"
          (click)="gotoDetail(book)" class="search-result" >
