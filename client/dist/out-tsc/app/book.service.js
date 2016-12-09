@@ -26,6 +26,11 @@ export var BookService = (function () {
         return this.getBooks()
             .then(function (books) { return books.find(function (book) { return book.id === id; }); });
     };
+    BookService.prototype.getBooksByCategory = function (id) {
+        alert(id);
+        return this.getBooks()
+            .then(function (books) { return books.find(function (book) { return book.category === id; }); });
+    };
     BookService.prototype.create = function (book) {
         return this.http
             .post(this.bookUrl, JSON.stringify(book), { headers: this.headers })

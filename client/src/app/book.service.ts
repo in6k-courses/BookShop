@@ -27,6 +27,13 @@ export class BookService {
       .then(books => books.find(book => book.id === id));
   }
 
+  getBooksByCategory(id: number): Promise<Book[]> {
+    alert(id);
+    return this.getBooks()
+      .then(books => books.find(book => book.category === id));
+  }
+
+
   create(book: Book): Promise<Book> {
     return this.http
       .post(this.bookUrl, JSON.stringify(book), {headers: this.headers})

@@ -1,5 +1,7 @@
 db:
   build: ./db
+  ports:
+    - "33060:3306"
 
 api:
   build: ./API

@@ -9,12 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { BookService } from '../book.service';
 import { CategoryService } from './categories.service';
 export var CategoryComponent = (function () {
-    function CategoryComponent(router, categoryService) {
+    function CategoryComponent(router, categoryService, bookService) {
         this.router = router;
         this.categoryService = categoryService;
+        this.bookService = bookService;
     }
+    CategoryComponent.prototype.getBooksByCategory = function (id) {
+        this.bookService.getBooksByCategory(id);
+    };
     CategoryComponent.prototype.getCategories = function () {
         var _this = this;
         this.categoryService.getCategories().then(function (categories) { return _this.categories = categories; });
@@ -29,7 +34,7 @@ export var CategoryComponent = (function () {
             templateUrl: 'categories.component.html',
             styleUrls: ['categories.component.css']
         }), 
-        __metadata('design:paramtypes', [Router, CategoryService])
+        __metadata('design:paramtypes', [Router, CategoryService, BookService])
     ], CategoryComponent);
     return CategoryComponent;
 }());

@@ -1,5 +1,5 @@
-<ul>
-  <select>
-    <option *ngFor="let category of categories" value='{{category.id}}'>{{category.name}}</option>
-  </select>
+<ul class="menu">
+  <li *ngFor="let category of categories" value='{{category.id}}'>
+    <button (click)="getBooksByCategory(category.id)"> {{category.name}}</button>
+  </li>
 </ul>
