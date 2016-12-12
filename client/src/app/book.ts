@@ -1,6 +1,6 @@
 export class Book {
     id: number;
     name: string;
-    author: boolean;
+    author: string;
     category: number;
 }

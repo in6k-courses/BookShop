@@ -1,0 +1,8 @@
+<form>
+  <input #name/>
+  <input #author/>
+  <input #category/>
+  <button onclick="location.href ='http://0.0.0.0:44200/books';" (click)="add(name.value, author.value, category.value); $event.stopPropagation()">
+    Add
+  </button>
+</form>

@@ -20,9 +20,9 @@ public class Categories {
     public String name;
 
     @JsonIgnore
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "categories")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "categories")
     @Cascade({org.hibernate.annotations.CascadeType.DELETE})
-    public List<Book> categories = new ArrayList();
+    public List<Book> books = new ArrayList();
 
     public Categories() {
     }
@@ -51,12 +51,12 @@ public class Categories {
         this.name = name;
     }
 
-    public List<Book> getCategories() {
-        return categories;
+    public List<Book> getBooks() {
+        return books;
     }
 
-    public void setCategories(List<Book> categories) {
-        this.categories = categories;
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 
 

@@ -1,11 +1,12 @@
 <h2>My Books</h2>
-<ul >
-    <li *ngFor="let book of books" (click)="showBook(book)">
+<ul>
+  <li *ngFor="let book of books" (click)="showBook(book)">
 
-        <span class="badge">{{book.author}}</span> |
-        <span>{{book.name}}</span>
-      <button class="delete"
-              (click)="delete(book); $event.stopPropagation()">x</button>
-    </li>
-
+    <span class="badge">{{book.author}}</span> |
+    <span>{{book.name}}</span>
+    <button class="delete"
+            (click)="delete(book); $event.stopPropagation()">x
+    </button>
+  </li>
 </ul>
+

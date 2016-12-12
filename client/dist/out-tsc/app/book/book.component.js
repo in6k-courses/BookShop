@@ -25,14 +25,6 @@ export var BookComponent = (function () {
     BookComponent.prototype.onSelect = function (book) {
         this.selectedBook = book;
     };
-    BookComponent.prototype.add = function (book) {
-        var _this = this;
-        alert(book);
-        this.bookService.create(book)
-            .then(function (book) {
-            _this.books.push(book);
-        });
-    };
     BookComponent.prototype.delete = function (book) {
         var _this = this;
         this.bookService

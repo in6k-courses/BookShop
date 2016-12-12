@@ -35,8 +35,6 @@ public class Book {
     @JoinColumn(name = "category", insertable = false, updatable = false)
     private Categories categories;
 
-
-
     public Book() {
     }
 

@@ -28,17 +28,9 @@ export class BookComponent implements OnInit {
     this.getBooks();
   }
 
-  onSelect(book: Book): void {
-    this.selectedBook = book;
-  }
-
-  add(book: Book): void {
-    alert(book);
-    this.bookService.create(book)
-      .then(book => {
-        this.books.push(book);
-      });
-  }
+   onSelect(book: Book): void {
+     this.selectedBook = book;
+   }
 
   delete(book: Book): void {
     this.bookService

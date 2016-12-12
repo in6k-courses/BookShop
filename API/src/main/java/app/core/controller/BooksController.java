@@ -29,9 +29,9 @@ public class BooksController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public void addBook(@RequestBody Book book) {
-        service.addBook(book);
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    public Book addBook(@RequestBody Book book) {
+        return service.addBook(book);
     }
 
     @ResponseBody

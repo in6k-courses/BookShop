@@ -22,8 +22,8 @@ public class BookServiceImpl {
             return dao.getBooksByCategory(id);
     }
 
-    public void addBook(Book book) {
-        dao.addBook(book);
+    public Book addBook(Book book) {
+        return dao.addBook(book);
     }
 
     public void updateBook(Book upBook) {

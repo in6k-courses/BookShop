@@ -18,6 +18,7 @@ import { BookSearchService } from './book-search/book-search.service';
 import { BookSearchComponent } from './book-search/book-search.component';
 import { ShopService } from './shop/shop.service';
 import { ShopComponent } from './shop/shop.component';
+import { AddBookComponent } from './add-book/add-book.component';
 import { CategoryComponent } from './categories/categories.component';
 import { CategoryService } from './categories/categories.service';
 import { HttpModule } from '@angular/http';
@@ -37,6 +38,7 @@ export var AppModule = (function () {
             declarations: [
                 AppComponent,
                 BookComponent,
+                AddBookComponent,
                 BooksDetailComponent,
                 BookSearchComponent,
                 ShopComponent,

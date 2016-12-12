@@ -27,9 +27,11 @@ public class BooksDaoImpl implements BooksDao {
         return books;
     }
 
-    public void addBook(Book book) {
+    public Book addBook(Book book) {
         sessionFactory.getCurrentSession().save(book);
+        return book;
     }
+
 
     public void updateBook(Book upBook) {
         Book book = (Book) sessionFactory.getCurrentSession().createCriteria(Book.class)
