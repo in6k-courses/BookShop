@@ -12,7 +12,7 @@ import {ShopComponent}     from './shop/shop.component'
 import {AddBookComponent}     from './add-book/add-book.component'
 import {CategoryComponent}  from './categories/categories.component';
 import  {CategoryService}   from './categories/categories.service';
-
+import  {BooksCategoryComponent}   from './books-category/books-category.component';
 
 import {HttpModule}    from '@angular/http';
 import {AppRoutingModule} from './app-routing.module';
@@ -33,6 +33,7 @@ import './rxjs-extensions';
     BooksDetailComponent,
     BookSearchComponent,
     ShopComponent,
+    BooksCategoryComponent,
     CategoryComponent
   ],
   providers: [

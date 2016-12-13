@@ -22,9 +22,6 @@ export var BookComponent = (function () {
     BookComponent.prototype.ngOnInit = function () {
         this.getBooks();
     };
-    BookComponent.prototype.onSelect = function (book) {
-        this.selectedBook = book;
-    };
     BookComponent.prototype.delete = function (book) {
         var _this = this;
         this.bookService
@@ -38,7 +35,6 @@ export var BookComponent = (function () {
     };
     BookComponent = __decorate([
         Component({
-            moduleId: module.id.toString(),
             selector: 'books',
             templateUrl: 'book.component.html',
             styleUrls: ['book.component.css']

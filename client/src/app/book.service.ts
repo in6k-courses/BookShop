@@ -13,7 +13,6 @@ export class BookService {
   constructor(private http: Http) {
   }
 
-
   getBooks(): Promise<Book[]> {
     return this.http.get(this.bookUrl)
       .toPromise()
@@ -27,14 +26,9 @@ export class BookService {
       .then(books => books.find(book => book.id === id));
   }
 
-  getBooksByCategory(id: number): Promise<Book[]> {
-    return this.getBooks()
-      .then(books => books.find(book => book.category === id));
-  }
-
   create(bookName : string, author : string, category: number): Promise<Book> {
     return this.http
-      .post(this.bookUrl, JSON.stringify({name: bookName, author: author, category: category}), {headers: this.headers})
+      .post(this.bookUrl, JSON.stringify({name: bookName, author: author, category: category, shop: 1}), {headers: this.headers})
       .toPromise()
       .then(res => res.json())
       .catch(this.handleError);

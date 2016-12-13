@@ -1,7 +1,5 @@
 <div id="search-component">
   <h4>Books Search</h4>
-  <shops></shops>
-  <categories></categories>
   <input #searchBox id="search-box" (onclick)="search(searchBox.value)" />
   <div>
     <div *ngFor="let book of books | async"

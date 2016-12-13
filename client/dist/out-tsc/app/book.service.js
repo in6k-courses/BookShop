@@ -26,13 +26,9 @@ export var BookService = (function () {
         return this.getBooks()
             .then(function (books) { return books.find(function (book) { return book.id === id; }); });
     };
-    BookService.prototype.getBooksByCategory = function (id) {
-        return this.getBooks()
-            .then(function (books) { return books.find(function (book) { return book.category === id; }); });
-    };
     BookService.prototype.create = function (bookName, author, category) {
         return this.http
-            .post(this.bookUrl, JSON.stringify({ name: bookName, author: author, category: category }), { headers: this.headers })
+            .post(this.bookUrl, JSON.stringify({ name: bookName, author: author, category: category, shop: 1 }), { headers: this.headers })
             .toPromise()
             .then(function (res) { return res.json(); })
             .catch(this.handleError);

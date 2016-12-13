@@ -5,30 +5,28 @@ import { Location }               from '@angular/common';
 
 import { Book }         from '../book';
 import { BookService }  from '../book.service';
+import {CategoryService} from "../categories/categories.service";
+import {Category} from "../categories";
+
 @Component({
-  selector: 'book-detail',
-  templateUrl: 'book-details.component.html',
-  styleUrls: ['book-details.component.css']
+  selector: 'books-category',
+  templateUrl: 'books-category.component.html',
+  styleUrls: ['books-category.component.css']
 })
-export class BooksDetailComponent implements OnInit {
-  book: Book;
+export class BooksCategoryComponent implements OnInit {
+  category: Category;
 
   constructor(
-    private bookService: BookService,
+    private categoryService: CategoryService,
     private route: ActivatedRoute,
     private location: Location
   ) {}
 
   ngOnInit(): void {
     this.route.params
-      .switchMap((params: Params) => this.bookService.getBook(+params['id']))
-      .subscribe(book => this.book = book);
+      .switchMap((params: Params) => this.categoryService.getCategory(+params['id']))
+      .subscribe(categories => this.category = categories);
   }
-
-   save(): void {
-     this.bookService.update(this.book)
-       .then(bookService => this.goBack());
-   }
 
   goBack(): void {
     this.location.back();

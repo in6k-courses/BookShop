@@ -7,7 +7,6 @@ import {Category} from "../categories";
 import {Book} from "../book";
 
 @Component({
-  moduleId: module.id.toString(),
   selector: 'categories',
   templateUrl: 'categories.component.html',
   styleUrls: ['categories.component.css']
@@ -19,12 +18,11 @@ export class CategoryComponent implements OnInit {
 
   constructor(private router: Router,
               private categoryService: CategoryService,
-              private bookService: BookService
   ) {
   }
 
-  getBooksByCategory(id: number): void{
-    this.bookService.getBooksByCategory(id);
+  getBooksByCategory(category: Category): void{
+    this.router.navigate(['categories/', category.id]);
 
   }
 
@@ -35,5 +33,10 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
     this.getCategories();
   }
+
+  showBooks(category: Category){
+    this.router.navigate(['/', category.id]);
+  }
+
 
 }

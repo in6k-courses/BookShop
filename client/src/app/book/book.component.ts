@@ -5,7 +5,6 @@ import {Book} from '../book';
 import {BookService} from '../book.service';
 
 @Component({
-  moduleId: module.id.toString(),
   selector: 'books',
   templateUrl: 'book.component.html',
   styleUrls: ['book.component.css']
@@ -13,7 +12,6 @@ import {BookService} from '../book.service';
 export class BookComponent implements OnInit {
   books: Book[];
   book: Book;
-  selectedBook: Book;
 
   constructor(private router: Router,
               private bookService: BookService) {
@@ -28,10 +26,6 @@ export class BookComponent implements OnInit {
     this.getBooks();
   }
 
-   onSelect(book: Book): void {
-     this.selectedBook = book;
-   }
-
   delete(book: Book): void {
     this.bookService
       .delete(book.id)
@@ -43,6 +37,5 @@ export class BookComponent implements OnInit {
   showBook(book: Book): void {
     this.router.navigate(['/detail', book.id]);
   }
-
 
 }

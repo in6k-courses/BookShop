@@ -8,16 +8,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
 import { BookSearchService } from './book-search.service';
 export var BookSearchComponent = (function () {
-    function BookSearchComponent(bookSearchService, router) {
+    function BookSearchComponent(bookSearchService) {
         this.bookSearchService = bookSearchService;
-        this.router = router;
         this.searchTerms = new Subject();
     }
-    BookSearchComponent.prototype.search = function (id) {
+    BookSearchComponent.prototype.search = function (name) {
         this.searchTerms.next(name);
     };
     BookSearchComponent.prototype.getBooks = function () {
@@ -29,13 +27,12 @@ export var BookSearchComponent = (function () {
     };
     BookSearchComponent = __decorate([
         Component({
-            moduleId: module.id.toString(),
             selector: 'book-search',
             templateUrl: 'book-search.component.html',
             styleUrls: ['book-search.component.css'],
             providers: [BookSearchService]
         }), 
-        __metadata('design:paramtypes', [BookSearchService, Router])
+        __metadata('design:paramtypes', [BookSearchService])
     ], BookSearchComponent);
     return BookSearchComponent;
 }());

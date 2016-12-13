@@ -1,8 +1,9 @@
 <form>
-  <input #name/>
-  <input #author/>
-  <input #category/>
-  <button onclick="location.href ='http://0.0.0.0:44200/books';" (click)="add(name.value, author.value, category.value); $event.stopPropagation()">
+  <input value="Book" #name/><br><br>
+  <input value="Author" #author/><br><br>
+  <input value="1" #category/><br><br>
+  <button (click)="add(name.value, author.value, category.value); $event.stopPropagation()">
     Add
   </button>
+  <button (click)="goBack()">Back</button>
 </form>

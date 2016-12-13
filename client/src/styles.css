@@ -2,13 +2,13 @@ body {
   font-family: "Sans";
   font-size: 14px;
   color: #252526;
-  background-color: #FFFFF0;
+  background-color: #E6E6E6;
 }
 
 input {
   border-radius: 5px;
   padding: 7px;
-  width: 400px;
+  width: 300px;
 }
 
 input[type=submit] {
@@ -38,17 +38,16 @@ select {
   cursor: pointer;
   margin: 10px;
 }
+
 button {
   font-family: Arial;
-  background-color: #eee;
+  background-color: #C0D7FB;
   border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
+  padding: 1px 4px;
   cursor: pointer;
   cursor: hand;
 }
 button:hover {
   background-color: #cfd8dc;
 }
-
 

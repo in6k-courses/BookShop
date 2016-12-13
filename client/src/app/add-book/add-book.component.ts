@@ -1,11 +1,12 @@
 import {Component} from '@angular/core';
 
 import {Book} from '../book';
+import { Location } from '@angular/common';
 import {BookService} from '../book.service';
-import {Router} from "@angular/router";
+import {CategoryService} from "../categories/categories.service";
+import {Category} from "../categories";
 
 @Component({
-  moduleId: module.id.toString(),
   selector: 'add-book',
   templateUrl: 'add-book.component.html',
   styleUrls: ['add-book.component.css']
@@ -13,8 +14,16 @@ import {Router} from "@angular/router";
 export class AddBookComponent {
   books: Book[];
   book: Book;
+  categories: Category[];
+  category: Category;
 
-  constructor(private router: Router, private bookService: BookService) {
+  constructor( private bookService: BookService,
+               private categoryService: CategoryService,
+               private location: Location) {
+  }
+
+  ngOnInit(): void {
+    this.categoryService.getCategories().then(categories => this.categories = categories);
   }
 
   add(name: string, author: string, category: number): void {
@@ -23,4 +32,9 @@ export class AddBookComponent {
         this.books.push(book);
       });
   }
+
+  goBack(): void {
+    this.location.back();
+  }
+
 }

@@ -13,11 +13,9 @@ export class BookSearchService {
   category: Category;
 
   private categoryUrl = '/api/books/category';
-  private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {
   }
-
 
   getBooks(): Promise<Book[]> {
     return this.http.get(this.categoryUrl)
@@ -25,16 +23,6 @@ export class BookSearchService {
       .then(response => response.json() as Book[])
       .catch(this.handleError);
 
-  }
-
-  getBook(id: number): Promise<Book[]> {
-    return this.getBooks()
-      .then(books => books.find(book => book.category === id));
-  }
-
-  search(id: number): Promise<Book[]> {
-    return this.getBook(id)
-      .then(books => books.find(book => book.category === id));
   }
 
   private handleError(error: any): Promise<any> {

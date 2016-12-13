@@ -24,7 +24,6 @@ export var ShopComponent = (function () {
     };
     ShopComponent = __decorate([
         Component({
-            moduleId: module.id.toString(),
             selector: 'shops',
             templateUrl: 'shop.component.html',
             styleUrls: ['shop.component.css']

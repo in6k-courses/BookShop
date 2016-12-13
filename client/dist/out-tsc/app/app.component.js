@@ -10,11 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Component } from '@angular/core';
 export var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'All books';
+        this.title = 'Search me';
     }
     AppComponent = __decorate([
         Component({
-            moduleId: module.id.toString(),
             selector: 'my-app',
             templateUrl: 'app.component.html',
             styleUrls: ['app.component.css'],

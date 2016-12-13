@@ -1,5 +1,6 @@
 package app.core.controller;
 
+import app.core.model.Book;
 import app.core.model.Categories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

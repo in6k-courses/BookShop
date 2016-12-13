@@ -1,5 +1,7 @@
-<ul class="menu">
-  <li *ngFor="let category of categories" value='{{category.id}}'>
-    <button (click)="getBooksByCategory(category.id)"> {{category.name}}</button>
+  <ul class="menu">
+  <li *ngFor="let category of categories" >
+    <button  (click)="getBooksByCategory(category); $event.stopPropagation()"> {{category.name}}</button>
   </li>
 </ul>
+
+

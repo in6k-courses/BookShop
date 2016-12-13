@@ -5,7 +5,7 @@ import {Subject}           from 'rxjs/Subject';
 import {BookSearchService} from './book-search.service';
 import {Book} from '../book';
 @Component({
-  moduleId: module.id.toString(),
+
   selector: 'book-search',
   templateUrl: 'book-search.component.html',
   styleUrls: ['book-search.component.css'],
@@ -16,11 +16,10 @@ export class BookSearchComponent implements OnInit {
 
   private searchTerms = new Subject<string>();
 
-  constructor(private bookSearchService: BookSearchService,
-              private router: Router) {
+  constructor(private bookSearchService: BookSearchService) {
   }
 
-  search(id: number): void {
+  search(name: string): void {
     this.searchTerms.next(name);
   }
 
@@ -31,6 +30,5 @@ export class BookSearchComponent implements OnInit {
   ngOnInit(): void {
     this.getBooks();
   }
-
 
 }

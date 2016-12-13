@@ -23,12 +23,6 @@ public class BooksController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/category", method = RequestMethod.GET)
-    public List<Book> getBooksByCategory(@RequestBody Integer id) {
-        return service.getBooksByCategory(id);
-    }
-
-    @ResponseBody
     @RequestMapping(value = "", method = RequestMethod.POST)
     public Book addBook(@RequestBody Book book) {
         return service.addBook(book);
