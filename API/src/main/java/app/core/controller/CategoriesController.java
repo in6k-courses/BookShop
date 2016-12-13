@@ -9,14 +9,16 @@ import java.util.List;
 
 import app.core.service.CategoriesServiceImpl;
 
+
 @RestController
+@RequestMapping(value = "/api/categories")
 public class CategoriesController {
 
     @Autowired
     CategoriesServiceImpl service;
 
     @ResponseBody
-    @RequestMapping(value = "/api/categories", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public List<Categories> allCategories() {
         return service.getCategories();
     }
