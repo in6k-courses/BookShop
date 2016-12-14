@@ -1,22 +1,35 @@
-<nav>
-  <a routerLink="/books" routerLinkActive="active">Books</a>
-  <a routerLink="/search" routerLinkActive="active">Search</a>
-  <a routerLink="/shop" routerLinkActive="active">Shops</a>
-  <a routerLink="/books/new" routerLinkActive="active">New Book</a>
-</nav>
-
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
+  <div class="container-fluid">
+    <input type="checkbox" id="navbar-toggle-cbox">
     <div class="navbar-header">
+      <label for="navbar-toggle-cbox" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+
+      <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </label>
       <a class="navbar-brand">{{title}}</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a routerLink="/books">Books</a></li>
+        <li><a routerLink="/search">Search</a></li>
+        <li><a routerLink="/shops">Shops</a></li>
+        <li><a routerLink="/books/new">New Book</a></li>
+      </ul>
+      <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Book">
+        </div>
+        <button type="submit" class="btn btn-default">Search</button>
+      </form>
     </div>
   </div>
 </nav>
-
-
-<div class="allStaticContent">
-  <div>
-    <categories></categories>
-  </div>
-</div>
+<!--<div class="container-fluid">-->
+  <!--<div class="container-fluid">-->
+    <!--<categories></categories>-->
+  <!--</div>-->
+<!--</div>-->
 <router-outlet></router-outlet>
