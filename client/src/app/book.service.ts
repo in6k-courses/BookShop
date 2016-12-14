@@ -42,9 +42,9 @@ export class BookService {
       .catch(this.handleError);
   }
 
+
   delete(id: number): Promise<void> {
-    const url = `${this.bookUrl}/${id}`;
-    return this.http.delete(url, {headers: this.headers})
+    return this.http.delete(this.bookUrl+id, {headers: this.headers})
       .toPromise()
       .then(() => null)
       .catch(this.handleError);

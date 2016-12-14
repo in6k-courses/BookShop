@@ -13,13 +13,12 @@ import 'rxjs/add/operator/toPromise';
 export var BookSearchService = (function () {
     function BookSearchService(http) {
         this.http = http;
-        this.categoryUrl = '/api/books/category';
+        this.booksUrl = '/api/books/search';
     }
-    BookSearchService.prototype.getBooks = function () {
-        return this.http.get(this.categoryUrl)
-            .toPromise()
-            .then(function (response) { return response.json(); })
-            .catch(this.handleError);
+    BookSearchService.prototype.search = function (name) {
+        return this.http
+            .get(this.booksUrl + "/" + name)
+            .map(function (r) { return r.json().data; });
     };
     BookSearchService.prototype.handleError = function (error) {
         console.error('An error occurred', error);

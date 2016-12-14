@@ -17,12 +17,12 @@ export class ShopComponent implements OnInit {
               private shopService: ShopService) {
   }
 
-  getBooks(): void {
+  getShops(): void {
     this.shopService.getShops().then(shops => this.shops = shops);
   }
 
   ngOnInit(): void {
-    this.getBooks();
+    this.getShops();
   }
 
 }

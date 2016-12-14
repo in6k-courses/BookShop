@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import {BookService} from '../book.service';
 import {CategoryService} from "../categories/categories.service";
 import {Category} from "../categories";
+import {Shop} from "../shop";
 
 @Component({
   selector: 'add-book',

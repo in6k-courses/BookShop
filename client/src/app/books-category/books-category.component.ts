@@ -3,8 +3,6 @@ import { Component, OnInit }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 
-import { Book }         from '../book';
-import { BookService }  from '../book.service';
 import {CategoryService} from "../categories/categories.service";
 import {Category} from "../categories";
 

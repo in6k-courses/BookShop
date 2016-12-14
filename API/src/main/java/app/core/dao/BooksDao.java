@@ -1,12 +1,13 @@
 package app.core.dao;
 
 import app.core.model.Book;
+import org.hibernate.Criteria;
 
 import java.util.List;
 
 interface BooksDao {
 
-    public List<Book> getBooks();
+    public List getBooks();
 
     public void deleteBook(Integer id);
 
@@ -14,6 +15,7 @@ interface BooksDao {
 
     public void updateBook(Book upBook);
 
-    public List<Book> getBooksByCategory(Integer id);
+    public List<Book> searchBook(String name);
 
+    public Criteria createCriteria();
 }

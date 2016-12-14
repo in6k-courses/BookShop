@@ -1,6 +1,8 @@
 package app.core.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 
@@ -35,7 +37,8 @@ public class Book {
     @JoinColumn(name = "category", insertable = false, updatable = false)
     private Categories categories;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "book_shops", catalog = "Library",
             joinColumns = {
                     @JoinColumn( name = "idBook", referencedColumnName = "id")

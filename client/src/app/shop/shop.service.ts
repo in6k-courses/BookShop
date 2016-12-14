@@ -8,7 +8,6 @@ import {Shop} from '../shop';
 @Injectable()
 export class ShopService {
   private shopUrl = '/api/shops/';
-  private headers = new Headers({'Content-Type': 'application/json'});
   constructor(private http: Http) {
   }
 

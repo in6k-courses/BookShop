@@ -4,6 +4,7 @@ import {Router}            from '@angular/router';
 import {Subject}           from 'rxjs/Subject';
 import {BookSearchService} from './book-search.service';
 import {Book} from '../book';
+import {Observable} from "rxjs";
 @Component({
 
   selector: 'book-search',
@@ -11,24 +12,16 @@ import {Book} from '../book';
   styleUrls: ['book-search.component.css'],
   providers: [BookSearchService]
 })
-export class BookSearchComponent implements OnInit {
+export class BookSearchComponent {
   books: Book[];
 
-  private searchTerms = new Subject<string>();
+  private searchName = new Subject<string>();
 
   constructor(private bookSearchService: BookSearchService) {
   }
 
   search(name: string): void {
-    this.searchTerms.next(name);
-  }
 
-  getBooks(): void {
-    this.bookSearchService.getBooks().then(books => this.books = books);
-  }
-
-  ngOnInit(): void {
-    this.getBooks();
   }
 
 }

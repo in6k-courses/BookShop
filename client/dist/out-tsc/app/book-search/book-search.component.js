@@ -13,17 +13,9 @@ import { BookSearchService } from './book-search.service';
 export var BookSearchComponent = (function () {
     function BookSearchComponent(bookSearchService) {
         this.bookSearchService = bookSearchService;
-        this.searchTerms = new Subject();
+        this.searchName = new Subject();
     }
     BookSearchComponent.prototype.search = function (name) {
-        this.searchTerms.next(name);
-    };
-    BookSearchComponent.prototype.getBooks = function () {
-        var _this = this;
-        this.bookSearchService.getBooks().then(function (books) { return _this.books = books; });
-    };
-    BookSearchComponent.prototype.ngOnInit = function () {
-        this.getBooks();
     };
     BookSearchComponent = __decorate([
         Component({

@@ -18,8 +18,8 @@ public class BookServiceImpl {
         return dao.getBooks();
     }
 
-    public List<Book> getBooksByCategory(Integer id){
-            return dao.getBooksByCategory(id);
+    public List<Book> searchBook(String name) {
+        return dao.searchBook(name);
     }
 
     public Book addBook(Book book) {

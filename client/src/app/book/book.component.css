@@ -1,7 +1,2 @@
-allBooks{
-  float: right;
-}
-
-li{
-  list-style-type: none;
-}
+td > a{text-decoration: none;
+cursor: pointer;}

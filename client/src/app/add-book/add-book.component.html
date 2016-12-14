@@ -1,7 +1,9 @@
+
 <form>
   <input value="Book" #name/><br><br>
   <input value="Author" #author/><br><br>
   <input value="1" #category/><br><br>
+
   <button (click)="add(name.value, author.value, category.value); $event.stopPropagation()">
     Add
   </button>

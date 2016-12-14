@@ -8,13 +8,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 export var ShopService = (function () {
     function ShopService(http) {
         this.http = http;
         this.shopUrl = '/api/shops/';
-        this.headers = new Headers({ 'Content-Type': 'application/json' });
     }
     ShopService.prototype.getShops = function () {
         return this.http.get(this.shopUrl)

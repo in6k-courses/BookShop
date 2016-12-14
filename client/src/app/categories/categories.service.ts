@@ -4,7 +4,6 @@ import {Headers, Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import {Category} from '../categories';
-import {Book} from "../book";
 
 @Injectable()
 export class CategoryService {

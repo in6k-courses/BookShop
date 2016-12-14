@@ -15,6 +15,8 @@ public class CategoriesDaoImpl implements CategoriesDao {
     SessionFactory sessionFactory;
 
     public List<Categories> getCategories() {
-        return sessionFactory.getCurrentSession().createCriteria(Categories.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+        return sessionFactory.getCurrentSession()
+                .createCriteria(Categories.class)
+                .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 }
