@@ -1,35 +1,15 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# compiled output
-/dist
-/tmp
+API/.idea/
+API/API.iml
+API/MyBooks.iml
+API/target/
 
-# dependencies
-/node_modules
-/bower_components
+client/.idea/
+client/dist/
+client/client.iml
+client/e2e/
+client/node_modules/
 
-# IDEs and editors
-/.idea
-/.vscode
-.project
-.classpath
-.c9/
-*.launch
-.settings/
+db/db.iml
 
-# misc
-/.sass-cache
-/connect.lock
-/coverage/*
-/libpeerconnection.log
-npm-debug.log
-testem.log
-/typings
-
-# e2e
-/e2e/*.js
-/e2e/*.map
-
-#System Files
-.DS_Store
-Thumbs.db

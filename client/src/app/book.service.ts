@@ -28,7 +28,7 @@ export class BookService {
 
   create(bookName : string, author : string, category: number): Promise<Book> {
     return this.http
-      .post(this.bookUrl, JSON.stringify({name: bookName, author: author, category: category, shop: 1}), {headers: this.headers})
+      .post(this.bookUrl, JSON.stringify({name: bookName, author: author, category: category}), {headers: this.headers})
       .toPromise()
       .then(res => res.json())
       .catch(this.handleError);

@@ -2,7 +2,6 @@
 <h4>All Books</h4>
 <ul>
   <li *ngFor="let book of books" (click)="showBook(book)">
-
     <span class="badge">{{book.author}}</span> |
     <span>{{book.name}}</span>
     <button class="delete"
