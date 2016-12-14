@@ -21,17 +21,6 @@ public class Shop {
     @Column(name = "name")
     public String name;
 
-//    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "shops")
-//    private List<Book> books;
-
-//    public void setBooks(List<Book> books) {
-//        this.books = books;
-//    }
-//
-//    public List<Book> getBooks() {
-//        return this.books;
-//    }
-
     public Integer getId() {
         return this.id;
     }

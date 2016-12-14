@@ -31,25 +31,26 @@ public class Book {
     private Integer category;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category", insertable = false, updatable = false)
     private Categories categories;
 
-//    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-//    @JoinTable(name = "book_shops", catalog = "Library",
-//            joinColumns = {
-//            @JoinColumn( name = "idBook", referencedColumnName = "id")
-//    },
-//            inverseJoinColumns = {@JoinColumn(name = "idShop", referencedColumnName = "id" )})
-//    public List<Shop> shops = new ArrayList();
-//
-//    public List<Shop> getShops() {
-//        return this.shops;
-//    }
-//
-//    public void setShops(List<Shop> shops) {
-//        this.shops = shops;
-//    }
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "book_shops", catalog = "Library",
+            joinColumns = {
+                    @JoinColumn( name = "idBook", referencedColumnName = "id")
+            },
+            inverseJoinColumns = {@JoinColumn(name = "idShop", referencedColumnName = "id" )})
+    private List<Shop> shops = new ArrayList();
+
+    public List<Shop> getShops() {
+        return this.shops;
+    }
+
+    public void setShops(List<Shop> shops) {
+        this.shops = shops;
+    }
+
 
     public Book() {
     }
