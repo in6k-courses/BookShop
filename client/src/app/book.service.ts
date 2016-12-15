@@ -1,9 +1,10 @@
 import {Injectable}    from '@angular/core';
-import {Headers, Http} from '@angular/http';
+import {Headers, Http, Response} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
 import {Book} from './book';
+import {Observable} from "rxjs";
 
 @Injectable()
 export class BookService {
@@ -18,7 +19,6 @@ export class BookService {
       .toPromise()
       .then(response => response.json() as Book[])
       .catch(this.handleError);
-
   }
 
   getBook(id: number): Promise<Book> {

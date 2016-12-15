@@ -5,7 +5,6 @@ import {AppComponent}        from './app.component';
 import {BookComponent}  from './book/book.component';
 import {BooksDetailComponent}  from './book-details/book-details.component';
 import {BookService}          from './book.service';
-import {BookSearchService}     from './book-search/book-search.service'
 import {BookSearchComponent}     from './book-search/book-search.component'
 import {ShopService}     from './shop/shop.service'
 import {ShopComponent}     from './shop/shop.component'
@@ -38,7 +37,6 @@ import './rxjs-extensions';
   ],
   providers: [
     BookService,
-    BookSearchService,
     ShopService,
     CategoryService
   ],
