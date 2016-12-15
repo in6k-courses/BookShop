@@ -3,6 +3,8 @@ package app.core.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 
@@ -31,6 +33,7 @@ public class Book {
 
     @Column(name = "category")
     private Integer category;
+
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)

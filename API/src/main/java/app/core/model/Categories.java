@@ -19,11 +19,6 @@ public class Categories {
     @Column(name = "name")
     public String name;
 
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "categories")
-    @Cascade({org.hibernate.annotations.CascadeType.DELETE})
-    public List<Book> books = new ArrayList();
-
     public Categories() {
     }
 
@@ -50,14 +45,5 @@ public class Categories {
     public void setName(String name) {
         this.name = name;
     }
-
-    public List<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
-
 
 }
