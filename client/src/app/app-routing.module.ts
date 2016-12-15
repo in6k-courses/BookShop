@@ -10,10 +10,10 @@ import {CategoryComponent}    from './categories/categories.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/books', pathMatch: 'full'},
+  {path: 'books/new', component: AddBookComponent},
   {path: 'books', component: BookComponent},
   {path: 'search', component: BookSearchComponent},
-  {path: 'detail/:id', component: BooksDetailComponent},
-  {path: 'books/new', component: AddBookComponent},
+  {path: 'books/:id', component: BooksDetailComponent},
   {path: 'shop', component: ShopComponent},
   {path: 'categories', component: CategoryComponent},
   {path: 'categories/:id', component: BooksCategoryComponent}
