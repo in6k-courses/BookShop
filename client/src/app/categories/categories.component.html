@@ -1,7 +1,4 @@
-  <ul class="menu">
-  <li *ngFor="let category of categories" >
-    <button  (click)="getBooksByCategory(category); $event.stopPropagation()"> {{category.name}}</button>
-  </li>
-</ul>
-
+<li *ngFor="let category of categories">
+      <a [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"  (click)="getBooksByCategory(category); $event.stopPropagation()"> {{category.name}}</a>
+</li>
 

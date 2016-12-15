@@ -1,6 +1,5 @@
 <div id="search-component">
-  <h4>Books Search</h4>
-  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <input #searchBox type="text" class="form-control" placeholder="Search" id="search-box" (keyup)="search(searchBox.value)" />
   <div>
     <div *ngFor="let book of books | async"
          (click)="gotoDetail(book)" class="search-result" >

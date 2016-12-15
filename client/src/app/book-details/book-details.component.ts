@@ -10,7 +10,7 @@ import { BookService }  from '../book.service';
   templateUrl: 'book-details.component.html',
   styleUrls: ['book-details.component.css']
 })
-export class BooksDetailComponent implements OnInit {
+export class BooksDetailComponent  {
   book: Book;
 
   constructor(

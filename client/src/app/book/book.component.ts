@@ -35,7 +35,7 @@ export class BookComponent implements OnInit {
   }
 
   showBook(book: Book): void {
-    this.router.navigate(['/detail', book.id]);
+    this.router.navigate(['/books', book.id]);
   }
 
 }

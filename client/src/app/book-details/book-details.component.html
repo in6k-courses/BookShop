@@ -1,16 +1,46 @@
-<div *ngIf="book">
-  <label>Book: '{{book.name}}'</label>
-  <div>
-    <label>Author: </label>{{book.author}}</div>
-  <div>
-    <input [(ngModel)]="book.name" placeholder="name" />
+<div class="container-fluid">
+  <div class="row">
+    <div *ngIf="book">
+      <div class="col-md-10 col-md-offset-1 ">
+        <h3>Book: '{{book.name}}'</h3>
+      </div>
+    </div>
   </div>
-  <label>Where you can buy it:</label>
-  <div *ngFor="let shops of book.shops">
-
-    <span class="badge">{{shops.name}}</span>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1 table-responsive">
+      <div *ngIf="book">
+        <div>
+          <label>Author: </label>{{book.author}}
+        </div>
+        <div class="table-responsive ">
+          <div id="no-more-tables">
+            <table class="table table-striped">
+              <thead>
+              <label>Where you can buy it:</label>
+              </thead>
+              <tbody>
+              <tr *ngFor="let shops of book.shops">
+                <td >{{shops.name}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 table-responsive">
+      <div class="input-group" *ngIf="book">
+        <input type="text" class="form-control" [(ngModel)]="book.name" placeholder="name"/>
+      </div>
+      <form>
+        <div class="form-group">
+        <button (click)="save()" type="button" type="submit" class="btn btn-success">save</button>
+        <button (click)="goBack()" type="submit" type="button" class="btn btn-warning">go back</button>
+        </div>
+      </form>
+    </div>
   </div>
-
-  <button (click)="save()">Save</button>
-  <button (click)="goBack()">Back</button>
 </div>
+
+
+
