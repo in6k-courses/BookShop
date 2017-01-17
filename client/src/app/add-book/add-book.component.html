@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1 ">
+      <h2>Add new book</h2>
+      <form>
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" #name required class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Author</label>
+          <input type="text" #author required class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Category:</label>
+            <select class="form-control" #category>
+              <option value="1">Harry Potter</option>
+              <option value="2">Non-fiction</option>
+            </select>
+        </div>
+        <button (click)="add(name.value, author.value, category.value); $event.stopPropagation()" type="submit" class="btn btn-success">add</button>
+        <button (click)="goBack()" type="submit" type="button" class="btn btn-warning">go back</button>
+      </form>
+    </div>
+    <div class="col-md-4 col-md-offset-1">
+      <h3>Sorry..</h3>
+      <span>
+        Our service working in test regime. Maintenance is in process.
+      </span>
+    </div>
+  </div>
+</div>
+

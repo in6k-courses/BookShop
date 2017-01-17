@@ -1,8 +1,17 @@
 package app.core.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.ManyToMany;
+
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -25,10 +34,28 @@ public class Book {
     @Column(name = "category")
     private Integer category;
 
+
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category", insertable = false, updatable = false)
     private Categories categories;
+
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinTable(name = "book_shops", catalog = "Library",
+            joinColumns = {
+                    @JoinColumn( name = "idBook", referencedColumnName = "id")
+            },
+            inverseJoinColumns = {@JoinColumn(name = "idShop", referencedColumnName = "id" )})
+    private List<Shop> shops = new ArrayList();
+
+    public List<Shop> getShops() {
+        return this.shops;
+    }
+
+    public void setShops(List<Shop> shops) {
+        this.shops = shops;
+    }
 
 
     public Book() {
@@ -43,6 +70,7 @@ public class Book {
         this.author = author;
         this.category = category;
     }
+
 
     public Integer getId() {
         return this.id;

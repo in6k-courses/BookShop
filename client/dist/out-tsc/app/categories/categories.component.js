@@ -15,6 +15,9 @@ export var CategoryComponent = (function () {
         this.router = router;
         this.categoryService = categoryService;
     }
+    CategoryComponent.prototype.getBooksByCategory = function (category) {
+        this.router.navigate(['categories/', category.id]);
+    };
     CategoryComponent.prototype.getCategories = function () {
         var _this = this;
         this.categoryService.getCategories().then(function (categories) { return _this.categories = categories; });
@@ -22,9 +25,11 @@ export var CategoryComponent = (function () {
     CategoryComponent.prototype.ngOnInit = function () {
         this.getCategories();
     };
+    CategoryComponent.prototype.showBooks = function (category) {
+        this.router.navigate(['/', category.id]);
+    };
     CategoryComponent = __decorate([
         Component({
-            moduleId: module.id.toString(),
             selector: 'categories',
             templateUrl: 'categories.component.html',
             styleUrls: ['categories.component.css']

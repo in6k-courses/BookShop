@@ -23,9 +23,9 @@ public class BooksController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public void addBook(@RequestBody Book book) {
-        service.addBook(book);
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    public Book addBook(@RequestBody Book book) {
+        return service.addBook(book);
     }
 
     @ResponseBody
@@ -34,10 +34,16 @@ public class BooksController {
         service.updateBook(upBook);
     }
 
-    @ResponseBody
-    @RequestMapping(value = {"/{id}"}, method = RequestMethod.DELETE)
-    public void deleteBook(@PathVariable("id") Integer id) {
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @ResponseBody void deleteBook(@PathVariable("id") Integer id) {
         service.deleteBook(id);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/search/{name}", method = RequestMethod.GET)
+    public List<Book> searchBook(@PathVariable("name") String name) {
+        return service.searchBook(name);
     }
 
 }

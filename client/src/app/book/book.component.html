@@ -1,9 +1,29 @@
-<h2>My Books</h2>
-<ul >
-    <li *ngFor="let book of books" (click)="showBook(book)">
-        <span class="badge">{{book.author}}</span> |
-        <span>{{book.name}}</span>
-      <button class="delete"
-              (click)="delete(book); $event.stopPropagation()">x</button>
-    </li>
-</ul>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 table-responsive">
+      <div id="no-more-tables">
+      <table class="table table-striped">
+        <thead>
+        <h2>All Books</h2>
+        <tr>
+          <th>Book</th>
+          <th>Author</th>
+          <th class="col-md-1"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let book of books">
+          <td ><a (click)="showBook(book);" class=".btn-link">{{book.name}}</a></td>
+          <td>{{book.author}}</td>
+          <td>
+            <button type="button" class="btn btn-danger"
+                    (click)="delete(book); $event.stopPropagation()">delete
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+</div>

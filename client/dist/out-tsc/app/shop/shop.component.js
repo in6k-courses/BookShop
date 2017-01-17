@@ -15,16 +15,15 @@ export var ShopComponent = (function () {
         this.router = router;
         this.shopService = shopService;
     }
-    ShopComponent.prototype.getBooks = function () {
+    ShopComponent.prototype.getShops = function () {
         var _this = this;
         this.shopService.getShops().then(function (shops) { return _this.shops = shops; });
     };
     ShopComponent.prototype.ngOnInit = function () {
-        this.getBooks();
+        this.getShops();
     };
     ShopComponent = __decorate([
         Component({
-            moduleId: module.id.toString(),
             selector: 'shops',
             templateUrl: 'shop.component.html',
             styleUrls: ['shop.component.css']

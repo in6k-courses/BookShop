@@ -8,19 +8,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 export var CategoryService = (function () {
     function CategoryService(http) {
         this.http = http;
         this.categoryUrl = '/api/categories/';
-        this.headers = new Headers({ 'Content-Type': 'application/json' });
     }
     CategoryService.prototype.getCategories = function () {
         return this.http.get(this.categoryUrl)
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
+    };
+    CategoryService.prototype.getCategory = function (id) {
+        return this.getCategories()
+            .then(function (categories) { return categories.find(function (category) { return category.id === id; }); });
     };
     CategoryService.prototype.handleError = function (error) {
         console.error('An error occurred', error);

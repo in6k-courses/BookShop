@@ -22,17 +22,6 @@ export var BookComponent = (function () {
     BookComponent.prototype.ngOnInit = function () {
         this.getBooks();
     };
-    BookComponent.prototype.onSelect = function (book) {
-        this.selectedBook = book;
-    };
-    BookComponent.prototype.add = function (book) {
-        var _this = this;
-        alert(book);
-        this.bookService.create(book)
-            .then(function (book) {
-            _this.books.push(book);
-        });
-    };
     BookComponent.prototype.delete = function (book) {
         var _this = this;
         this.bookService
@@ -46,11 +35,10 @@ export var BookComponent = (function () {
     };
     BookComponent = __decorate([
         Component({
-            moduleId: module.id.toString(),
             selector: 'books',
             templateUrl: 'book.component.html',
             styleUrls: ['book.component.css']
-        }),
+        }), 
         __metadata('design:paramtypes', [Router, BookService])
     ], BookComponent);
     return BookComponent;

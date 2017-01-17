@@ -6,12 +6,11 @@ import { Location }               from '@angular/common';
 import { Book }         from '../book';
 import { BookService }  from '../book.service';
 @Component({
-  moduleId: module.id.toString(),
   selector: 'book-detail',
   templateUrl: 'book-details.component.html',
   styleUrls: ['book-details.component.css']
 })
-export class BooksDetailComponent implements OnInit {
+export class BooksDetailComponent  {
   book: Book;
 
   constructor(

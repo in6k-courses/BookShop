@@ -8,7 +8,6 @@ import {Category} from '../categories';
 @Injectable()
 export class CategoryService {
   private categoryUrl = '/api/categories/';
-  private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {
   }
@@ -19,6 +18,11 @@ export class CategoryService {
       .then(response => response.json() as Category[])
       .catch(this.handleError);
 
+  }
+
+  getCategory(id: number): Promise<Category> {
+    return this.getCategories()
+      .then(categories => categories.find(category => category.id === id));
   }
 
   private handleError(error: any): Promise<any> {

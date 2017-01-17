@@ -18,7 +18,7 @@ public class DataBase {
 
     private String DB_PASSWORD="zabudska1985";
 
-    private String DB_URL="jdbc:mysql://127.0.0.1:3306/Library?useSSL=false";
+    private String DB_URL="jdbc:mysql://db:3306/Library?useSSL=false";
 
     private String DB_USERNAME="root";
 
@@ -63,7 +63,3 @@ public class DataBase {
     }
 
 }
-
-
-
-

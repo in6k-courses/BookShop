@@ -1,5 +1,18 @@
-<ul>
-  <select>
-    <option *ngFor="let shop of shops" value='{{shop.id}}'>{{shop.name}}</option>
-  </select>
-</ul>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 table-responsive">
+      <div id="no-more-tables">
+        <table class="table table-striped">
+          <thead>
+          <h2>All Shops</h2>
+          </thead>
+          <tbody>
+          <tr *ngFor="let shop of shops">
+            <td>{{shop.name}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

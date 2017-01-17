@@ -34,7 +34,6 @@ export var BooksDetailComponent = (function () {
     };
     BooksDetailComponent = __decorate([
         Component({
-            moduleId: module.id.toString(),
             selector: 'book-detail',
             templateUrl: 'book-details.component.html',
             styleUrls: ['book-details.component.css']

@@ -5,7 +5,6 @@ import {Book} from '../book';
 import {BookService} from '../book.service';
 
 @Component({
-  moduleId: module.id.toString(),
   selector: 'books',
   templateUrl: 'book.component.html',
   styleUrls: ['book.component.css']
@@ -13,7 +12,6 @@ import {BookService} from '../book.service';
 export class BookComponent implements OnInit {
   books: Book[];
   book: Book;
-  selectedBook: Book;
 
   constructor(private router: Router,
               private bookService: BookService) {
@@ -23,20 +21,9 @@ export class BookComponent implements OnInit {
     this.bookService.getBooks().then(books => this.books = books);
   }
 
+
   ngOnInit(): void {
     this.getBooks();
-  }
-
-  onSelect(book: Book): void {
-    this.selectedBook = book;
-  }
-
-  add(book: Book): void {
-    alert(book);
-    this.bookService.create(book)
-      .then(book => {
-        this.books.push(book);
-      });
   }
 
   delete(book: Book): void {
@@ -48,8 +35,7 @@ export class BookComponent implements OnInit {
   }
 
   showBook(book: Book): void {
-    this.router.navigate(['/detail', book.id]);
+    this.router.navigate(['/books', book.id]);
   }
-
 
 }

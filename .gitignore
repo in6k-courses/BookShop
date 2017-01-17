@@ -1,0 +1,15 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+API/.idea/
+API/API.iml
+API/MyBooks.iml
+API/target/
+
+client/.idea/
+client/dist/
+client/client.iml
+client/e2e/
+client/node_modules/
+
+db/db.iml
+

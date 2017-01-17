@@ -2,6 +2,8 @@ package app.core.model;
 
 import javax.persistence.*;
 
+import java.awt.print.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -19,5 +21,19 @@ public class Shop {
     @Column(name = "name")
     public String name;
 
+    public Integer getId() {
+        return this.id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

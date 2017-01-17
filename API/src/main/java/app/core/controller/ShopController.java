@@ -9,13 +9,14 @@ import java.util.List;
 import app.core.service.ShopServiceImpl;
 
 @RestController
+@RequestMapping(value = "/api/shops")
 public class ShopController {
 
     @Autowired
     ShopServiceImpl service;
 
     @ResponseBody
-    @RequestMapping(value = "/api/shops", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public List<Shop> allShops() {
         return service.getShops();
     }

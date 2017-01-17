@@ -1,5 +1,4 @@
-<ul>
-  <select>
-    <option *ngFor="let category of categories" value='{{category.id}}'>{{category.name}}</option>
-  </select>
-</ul>
+<li *ngFor="let category of categories">
+      <a [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"  (click)="getBooksByCategory(category); $event.stopPropagation()"> {{category.name}}</a>
+</li>
+

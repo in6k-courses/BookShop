@@ -9,14 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import 'rxjs/add/operator/toPromise';
 export var BookSearchService = (function () {
     function BookSearchService(http) {
         this.http = http;
+        this.booksUrl = '/api/books/search';
     }
     BookSearchService.prototype.search = function (name) {
         return this.http
-            .get("api/books?q=" + name)
-            .map(function (r) { return r.json(); });
+            .get(this.booksUrl + "/" + name)
+            .map(function (r) { return r.json().data; });
+    };
+    BookSearchService.prototype.handleError = function (error) {
+        console.error('An error occurred', error);
+        return Promise.reject(error.message || error);
     };
     BookSearchService = __decorate([
         Injectable(), 

@@ -1,8 +1,10 @@
 package app.core.dao;
 
 import app.core.model.Book;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -15,27 +17,36 @@ public class BooksDaoImpl implements BooksDao {
     @Autowired
     SessionFactory sessionFactory;
 
-    public List<Book> getBooks() {
-        return sessionFactory.getCurrentSession().createCriteria(Book.class).list();
+    public Criteria createCriteria(){
+        return sessionFactory.getCurrentSession().createCriteria(Book.class);
     }
 
-    public void addBook(Book book) {
+    public List<Book> getBooks() {return createCriteria().setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+    }
+
+    public List<Book> searchBook(String name){
+        String searchName = name + "%";
+        List<Book> book = (List<Book>) createCriteria()
+                .add(Restrictions.like("name", searchName)).list();
+        return book;
+    }
+
+    public Book addBook(Book book) {
         sessionFactory.getCurrentSession().save(book);
+        return book;
     }
 
     public void updateBook(Book upBook) {
-        Book book = (Book) sessionFactory.getCurrentSession().createCriteria(Book.class)
+        Book book = (Book) createCriteria()
                 .add(eq("id", upBook.getId())).uniqueResult();
         book.setName(upBook.getName());
         sessionFactory.getCurrentSession().update(book);
     }
 
     public void deleteBook(Integer id) {
-        System.out.println(id);
-        Session currentSession = sessionFactory.getCurrentSession();
-        Book book = (Book) currentSession.createCriteria(Book.class)
+        Book book = (Book) createCriteria()
                 .add(eq("id", id)).uniqueResult();
-        currentSession.delete(book);
+        sessionFactory.getCurrentSession().delete(book);
     }
 
 }

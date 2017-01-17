@@ -1,0 +1,11 @@
+<div *ngIf="category">
+  <h2>Books by {{category.name}}</h2>
+  <span class="badge"></span>
+  <div *ngFor="let books of category.books">
+    <span class="badge">{{books.author}}</span> |
+    <span>{{books.name}}</span>
+    <button class="delete" (click)="delete(book); $event.stopPropagation()">
+      x
+    </button>
+  </div>
+</div>

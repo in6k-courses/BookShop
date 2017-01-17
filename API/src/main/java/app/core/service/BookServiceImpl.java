@@ -18,8 +18,12 @@ public class BookServiceImpl {
         return dao.getBooks();
     }
 
-    public void addBook(Book book) {
-        dao.addBook(book);
+    public List<Book> searchBook(String name) {
+        return dao.searchBook(name);
+    }
+
+    public Book addBook(Book book) {
+        return dao.addBook(book);
     }
 
     public void updateBook(Book upBook) {

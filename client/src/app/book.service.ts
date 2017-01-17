@@ -1,9 +1,10 @@
 import {Injectable}    from '@angular/core';
-import {Headers, Http} from '@angular/http';
+import {Headers, Http, Response} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
 import {Book} from './book';
+import {Observable} from "rxjs";
 
 @Injectable()
 export class BookService {
@@ -13,13 +14,11 @@ export class BookService {
   constructor(private http: Http) {
   }
 
-
   getBooks(): Promise<Book[]> {
     return this.http.get(this.bookUrl)
       .toPromise()
       .then(response => response.json() as Book[])
       .catch(this.handleError);
-
   }
 
   getBook(id: number): Promise<Book> {
@@ -27,9 +26,9 @@ export class BookService {
       .then(books => books.find(book => book.id === id));
   }
 
-  create(book: Book): Promise<Book> {
+  create(bookName : string, author : string, category: number): Promise<Book> {
     return this.http
-      .post(this.bookUrl, JSON.stringify(book), {headers: this.headers})
+      .post(this.bookUrl, JSON.stringify({name: bookName, author: author, category: category}), {headers: this.headers})
       .toPromise()
       .then(res => res.json())
       .catch(this.handleError);
@@ -43,9 +42,9 @@ export class BookService {
       .catch(this.handleError);
   }
 
+
   delete(id: number): Promise<void> {
-    const url = `${this.bookUrl}/${id}`;
-    return this.http.delete(url, {headers: this.headers})
+    return this.http.delete(this.bookUrl+id, {headers: this.headers})
       .toPromise()
       .then(() => null)
       .catch(this.handleError);

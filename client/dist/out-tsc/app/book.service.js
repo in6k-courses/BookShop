@@ -26,9 +26,9 @@ export var BookService = (function () {
         return this.getBooks()
             .then(function (books) { return books.find(function (book) { return book.id === id; }); });
     };
-    BookService.prototype.create = function (book) {
+    BookService.prototype.create = function (bookName, author, category) {
         return this.http
-            .post(this.bookUrl, JSON.stringify(book), { headers: this.headers })
+            .post(this.bookUrl, JSON.stringify({ name: bookName, author: author, category: category }), { headers: this.headers })
             .toPromise()
             .then(function (res) { return res.json(); })
             .catch(this.handleError);
@@ -41,8 +41,7 @@ export var BookService = (function () {
             .catch(this.handleError);
     };
     BookService.prototype.delete = function (id) {
-        var url = this.bookUrl + "/" + id;
-        return this.http.delete(url, { headers: this.headers })
+        return this.http.delete(this.bookUrl + id, { headers: this.headers })
             .toPromise()
             .then(function () { return null; })
             .catch(this.handleError);
